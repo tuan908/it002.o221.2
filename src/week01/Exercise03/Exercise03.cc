@@ -11,7 +11,7 @@ int main() {
 
     vector<Fraction03> l;
 
-    for(int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++) {
         f.input();
         l.push_back(f);
     }
@@ -22,8 +22,8 @@ int main() {
 
     f.sort(l);
 
-    for(auto element: l) {
-        element.display();
+    for (int i = 0; i < l.size(); i++) {
+        l[i].display();
     }
 
     return 0;

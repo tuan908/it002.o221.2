@@ -7,10 +7,15 @@
 class Fraction03 : public Fraction02 {
    public:
     Fraction03 findLargestFraction(const vector<Fraction03> &array);
-    vector<Fraction03> sort(vector<Fraction03> &array);
+    void sort(vector<Fraction03> &array);
 
     void merge(vector<Fraction03> &array, int left, int middle, int right);
     void mergeSort(vector<Fraction03> &array, int left, int right);
+
+    bool operator>(const Fraction03 &other) const {
+        return (this->getNumerator() / this->getDenominator()) >
+               (other.getNumerator() / other.getDenominator());
+    }
 };
 
 Fraction03 Fraction03::findLargestFraction(const vector<Fraction03> &array) {
@@ -29,14 +34,12 @@ Fraction03 Fraction03::findLargestFraction(const vector<Fraction03> &array) {
     return ans;
 }
 
-vector<Fraction03> Fraction03::sort(vector<Fraction03> &l) {
+void Fraction03::sort(vector<Fraction03> &l) {
     if (l.empty()) {
         exit(-1);
     }
 
     mergeSort(l, 0, l.size() - 1);
-
-    return l;
 }
 
 void Fraction03::mergeSort(vector<Fraction03> &l, int left, int right) {
@@ -57,18 +60,18 @@ void Fraction03::merge(vector<Fraction03> &array, int left, int middle,
 
     vector<Fraction03> L(n1), R(n2);
 
-    for (int i = 0; i < n1; i++) {
+    for (int i = 0; i < n1; ++i) {
         L[i] = array[left + i];
     }
 
-    for (int j = 0; j < n2; j++) {
+    for (int j = 0; j < n2; ++j) {
         R[j] = array[middle + 1 + j];
     }
 
     int i = 0, j = 0, k = left;
 
     while (i < n1 && j < n2) {
-        if (L[i] <= array[i]) {
+        if (L[i] > array[i]) {
             array[k] = L[i];
             ++i;
         } else {
