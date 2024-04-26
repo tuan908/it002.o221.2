@@ -1,5 +1,13 @@
-BasedOnStyle: Google
+# We'll use defaults from the Google style, but with 2 columns indentation.
 IndentWidth: 4
 TabWidth: 4
-UseTab: Never
-ColumnLimit: 80
+ColumnLimit: 100
+Language: Cpp
+AllowShortLoopsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: false
+AllowShortIfStatementsOnASingleLine: false
+AlwaysBreakTemplateDeclarations: false
+PackConstructorInitializers: NextLine
+DerivePointerAlignment: false
+PointerAlignment: Left
+BasedOnStyle: Google

@@ -1,4 +1,4 @@
-#include "Excersise02.h"
+#include "Bai02.h"
 
 int main() {
     Point p1, p2;
@@ -12,9 +12,9 @@ int main() {
 
     cout << "Nhap tung do moi: ";
     cin >> newY;
-    
+
     p1.setNewPosition(newX, newY);
-    
+
     p1.output();
 
     return 0;
